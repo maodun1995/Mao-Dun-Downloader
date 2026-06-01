@@ -41,9 +41,10 @@ def fetch():
     url = data['url']
 
     ydl_opts = {
-        'quiet': True,
-        'skip_download': True
-    }
+    'quiet': True,
+    'skip_download': True,
+    'cookiefile': 'cookies.txt'
+}
 
     try:
 
@@ -117,21 +118,22 @@ def download():
     else:
 
         fmt = "best"
-
     ydl_opts = {
 
-        'format': fmt,
+    'format': fmt,
 
-        'outtmpl':
-            'downloads/%(title).80s.%(ext)s',
+    'outtmpl':
+        'downloads/%(title).80s.%(ext)s',
 
-        'merge_output_format': 'mp4',
+    'merge_output_format': 'mp4',
 
-        'windowsfilenames': True,
+    'windowsfilenames': True,
 
-        'noplaylist': True
+    'noplaylist': True,
 
-    }
+    'cookiefile': 'cookies.txt'
+
+}
 
     try:
 
@@ -201,20 +203,21 @@ def download_mp3():
     quality = data.get('mp3_quality', '192')
 
     ydl_opts = {
-        'format': 'bestaudio/best',
+    'format': 'bestaudio/best',
 
-        # ✅ use stable filename (IMPORTANT)
-        'outtmpl': 'downloads/audio-%(id)s.%(ext)s',
+    'outtmpl': 'downloads/audio-%(id)s.%(ext)s',
 
-        'windowsfilenames': True,
-        'noplaylist': True,
+    'windowsfilenames': True,
+    'noplaylist': True,
 
-        'postprocessors': [{
-            'key': 'FFmpegExtractAudio',
-            'preferredcodec': 'mp3',
-            'preferredquality': quality
-        }]
-    }
+    'cookiefile': 'cookies.txt',
+
+    'postprocessors': [{
+        'key': 'FFmpegExtractAudio',
+        'preferredcodec': 'mp3',
+        'preferredquality': quality
+    }]
+}
 
     try:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
@@ -238,74 +241,7 @@ def download_mp3():
             "error": str(e)
         })
 
-    ydl_opts = {
-
-        'format':
-            'bestaudio/best',
-
-        'outtmpl':
-            'downloads/%(title).80s.%(ext)s',
-
-        'windowsfilenames':
-            True,
-
-        'postprocessors': [{
-
-            'key':
-                'FFmpegExtractAudio',
-
-            'preferredcodec':
-                'mp3',
-
-            'preferredquality':
-                quality
-
-        }],
-
-        'noplaylist':
-            True
-
-    }
-
-    try:
-
-        with yt_dlp.YoutubeDL(
-            ydl_opts
-        ) as ydl:
-
-            info = ydl.extract_info(
-                url,
-                download=True
-            )
-
-            title = clean_filename(
-                info.get('title')
-            )
-
-            filename = (
-                f"downloads/{title}.mp3"
-            )
-
-        return send_file(
-
-            filename,
-
-            as_attachment=True,
-
-            download_name=
-                f"{title}.mp3"
-
-        )
-
-    except Exception as e:
-
-        return jsonify({
-
-            'success': False,
-            'error': str(e)
-
-        })
-
+ 
 
 if __name__ == '__main__':
 

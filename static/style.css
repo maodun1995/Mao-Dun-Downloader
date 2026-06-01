@@ -1,0 +1,146 @@
+body{
+    margin:0;
+    padding:0;
+    background:#0b0f1a;
+    font-family:Arial, sans-serif;
+    color:white;
+}
+
+.container{
+    width:90%;
+    max-width:600px;
+    margin:auto;
+    text-align:center;
+    padding:30px 10px;
+}
+
+.logo{
+    width:160px;
+    border-radius:50%;
+    box-shadow:0 0 25px rgba(0,255,255,0.4);
+    transition:0.3s;
+}
+
+.logo:hover{
+    transform:scale(1.05);
+}
+
+h1{
+    color:#d4af37;
+    margin:15px 0;
+    font-size:34px;
+}
+
+input, select, textarea{
+    width:100%;
+    padding:14px;
+    margin-top:12px;
+    border:none;
+    border-radius:10px;
+    font-size:15px;
+    box-sizing:border-box;
+    outline:none;
+}
+
+textarea{
+    resize:none;
+    height:120px;
+}
+
+button{
+    width:100%;
+    padding:14px;
+    margin-top:15px;
+    border:none;
+    border-radius:10px;
+    background:#d4af37;
+    color:black;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#f1c84c;
+    transform:translateY(-2px);
+}
+
+hr{
+    margin:25px 0;
+    border:0.5px solid #222;
+}
+
+#result{
+    margin-top:20px;
+    background:#141c2f;
+    padding:15px;
+    border-radius:15px;
+}
+
+img.preview{
+    width:100%;
+    border-radius:15px;
+    margin-bottom:10px;
+}
+
+h2{
+    font-size:20px;
+    color:white;
+}
+
+p{
+    color:#cfcfcf;
+    font-size:14px;
+}
+
+/* Loading */
+.spinner{
+    width:50px;
+    height:50px;
+    border:5px solid #2a2f45;
+    border-top:5px solid #d4af37;
+    border-radius:50%;
+    margin:15px auto;
+    animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+    0%{ transform:rotate(0deg); }
+    100%{ transform:rotate(360deg); }
+}
+
+/* Progress Bar */
+.progress{
+    width:100%;
+    height:10px;
+    background:#1e2435;
+    border-radius:20px;
+    margin-top:15px;
+    overflow:hidden;
+}
+
+#progressBar{
+    width:0%;
+    height:100%;
+    background:linear-gradient(90deg,#d4af37,#f1c84c);
+    transition:0.3s;
+}
+
+/* Status */
+#status{
+    margin-top:10px;
+    font-size:14px;
+    color:#aaa;
+}
+
+/* Mobile */
+@media(max-width:600px){
+    h1{
+        font-size:26px;
+    }
+
+    .logo{
+        width:130px;
+    }
+}

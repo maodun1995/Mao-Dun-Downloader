@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Mao Dun Downloader
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="/static/style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <img
+        src="/static/logo.png"
+        class="logo">
+
+    <h1>
+        Mao Dun Downloader
+    </h1>
+
+    <input
+        type="text"
+        id="url"
+        placeholder="Paste TikTok / YouTube / Facebook / Instagram Link">
+
+    <select id="quality">
+
+        <option value="best">
+            Best Quality
+        </option>
+
+        <option value="1080">
+            1080p
+        </option>
+
+        <option value="720">
+            720p
+        </option>
+
+        <option value="480">
+            480p
+        </option>
+
+        <option value="360">
+            360p
+        </option>
+
+    </select>
+
+    <select id="mp3_quality">
+
+        <option value="128">
+            MP3 128 kbps
+        </option>
+
+        <option value="192" selected>
+            MP3 192 kbps
+        </option>
+
+        <option value="320">
+            MP3 320 kbps
+        </option>
+
+    </select>
+
+    <button
+        onclick="fetchVideo()">
+
+        Fetch Video
+
+    </button>
+
+    <hr>
+
+    <h3>
+        Batch Download
+    </h3>
+
+    <textarea
+
+        id="batch_urls"
+
+        rows="6"
+
+        placeholder="Paste Multiple Links (One Per Line)">
+
+    </textarea>
+
+    <button
+        onclick="batchDownload()">
+
+        Download All
+
+    </button>
+
+    <div
+        id="loading"
+        style="display:none;">
+
+        <div class="spinner"></div>
+
+        <p>
+            Processing...
+        </p>
+
+    </div>
+
+    <div class="progress">
+
+        <div
+            id="progressBar">
+
+        </div>
+
+    </div>
+
+    <p id="status"></p>
+
+    <div id="result"></div>
+
+</div>
+
+<script
+    src="/static/script.js">
+
+</script>
+
+</body>
+
+</html>

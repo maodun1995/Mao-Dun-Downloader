@@ -43,6 +43,9 @@ def fetch():
     ydl_opts = {
     'quiet': True,
     'skip_download': True,
+    'http_headers': {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36'
+    }
 }
 
     try:
@@ -118,17 +121,14 @@ def download():
 
         fmt = "best"
     ydl_opts = {
-
     'format': fmt,
-
-    'outtmpl':
-        'downloads/%(title).80s.%(ext)s',
-
+    'outtmpl': 'downloads/%(title).80s.%(ext)s',
     'merge_output_format': 'mp4',
-
     'windowsfilenames': True,
-
     'noplaylist': True,
+    'http_headers': {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36'
+    }
 }
 
     try:
@@ -200,12 +200,12 @@ def download_mp3():
 
     ydl_opts = {
     'format': 'bestaudio/best',
-
     'outtmpl': 'downloads/audio-%(id)s.%(ext)s',
-
     'windowsfilenames': True,
     'noplaylist': True,
-
+    'http_headers': {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36'
+    },
     'postprocessors': [{
         'key': 'FFmpegExtractAudio',
         'preferredcodec': 'mp3',

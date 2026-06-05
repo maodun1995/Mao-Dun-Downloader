@@ -43,7 +43,6 @@ def fetch():
     ydl_opts = {
     'quiet': True,
     'skip_download': True,
-    'cookiefile': 'cookies.txt'
 }
 
     try:
@@ -130,9 +129,6 @@ def download():
     'windowsfilenames': True,
 
     'noplaylist': True,
-
-    'cookiefile': 'cookies.txt'
-
 }
 
     try:
@@ -209,8 +205,6 @@ def download_mp3():
 
     'windowsfilenames': True,
     'noplaylist': True,
-
-    'cookiefile': 'cookies.txt',
 
     'postprocessors': [{
         'key': 'FFmpegExtractAudio',
